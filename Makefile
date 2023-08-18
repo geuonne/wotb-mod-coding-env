@@ -37,20 +37,20 @@ dist-general: DISTDIR = dist/general
 dist-general: build
 	$(CD) $(BUILDDIR)/$(WMOD_TARGET_PLATFORM) && $(7Z) a $(_ROOT)/$(DISTDIR)/$(WMOD_PACKAGENAME).$(WMOD_PACKAGE_FORMAT) $(WOTB_PREFIX)
 
-# build packages as required by Forblitz
+# build packages as required by ForBlitz
 .PHONY: dist-forblitz
 dist-forblitz: DISTDIR = dist/forblitz
-dist-forblitz:
+dist-forblitz: WMOD_PACKAGE_NAME = $(WMOD_NAME)_$(WMOD_VERSION)_$(WMOD_TARGET_PLATFORM)
 dist-forblitz: build
 	$(MKDIR) -p $(DISTDIR)
-	$(foreach $(WMOD_TARGET_PLATFORM),android pc,$(dist_forblitz_package)
-define dist-forblitz-package =
-WMOD_PACKAGE_NAME = $(WMOD_NAME)_$(WMOD_VERSION)_$(WMOD_TARGET_PLATFORM)
-ifeq ($(WMOD_TARGET_PLATFORM), pc)
-	$(eval WMOD_PACKAGENAME = $(WMOD_NAME)_$(WMOD_VERSION)_steam)
-endif
 	$(CD) $(BUILDDIR)/$(WMOD_TARGET_PLATFORM) && $(7Z) a $(_ROOT)/$(DISTDIR)/$(WMOD_PACKAGE_NAME).$(WMOD_PACKAGE_FORMAT) $(WOTB_PREFIX)
+
+# build packages as required by ForBlitz (all platforms)
+dist-forblitz-all:
+define dist_forblitz_by_platform
+$(MAKE) -B dist-forblitz WMOD_TARGET_PLATFORM=$(i_target_platform)
 endef
+	$(foreach android steam,$(dist_forblitz_by_platform))
 
 # build packages for distributing
 .PHONY: dist

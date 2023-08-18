@@ -27,16 +27,6 @@ YAML_EVAL = $(YQ) eval --expression
 WMOD_INFO_FILE = mod_info.yaml
 WMOD_INFO_GET = 0<$(WMOD_INFO_FILE) $(YAML_EVAL)
 
-# Mod constants
-# Mod full name
-# WMOD_TITLE =
-# One or more of: (pc|android|ios|any)
-# WMOD_INITIALTARGETPLATFORM = any
-# (N.N.N[+|[-N.N.N]]|any)
-# WMOD_INITIALTARGETPATCH = any
-# (wg|lg|Any)
-# WMOD_INITIALTARGETPUBLISHER = any
-
 # Compress to dvpl (n|y), do compress by default
 WMOD_DVPLIZE = y
 
@@ -65,7 +55,7 @@ WMOD_PACKAGE_FORMAT = zip
 # platform-specific game prefix, needed for making base directory for packages
 # Default none - for anyplat mods
 WOTB_PREFIX = .
-ifeq ($(WMOD_TARGET_PLATFORM), pc)
+ifeq ($(WMOD_TARGET_PLATFORM), steam)
 	WOTB_PREFIX = Data
 endif
 ifeq ($(WMOD_TARGET_PLATFORM), android)

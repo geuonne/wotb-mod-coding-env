@@ -3,14 +3,16 @@ insert_final_newline = true
 trim_trailing_whitespace = true
 charset = utf-8
 
-[{presrc,src}/**]
 # Default in Wargaming's source files
+[{prepare,src}/**]
 end_of_line = crlf
 
-[*.yaml,*.yml,.yamllint]
+# Default in Wargaming's source files
+[*.{yaml,yml},.yamllint]
 indent_style = space
 indent_size = 4
 
 [*.{actions,animation}]
-# NOTE: These files have inconsistent indentation
+# NOTE: These files have inconsistent indentation.
+# Though they have C-like syntax
 indent_style = tab

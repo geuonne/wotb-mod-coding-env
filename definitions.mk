@@ -31,6 +31,7 @@ WMOD_INFO_GET = 0<$(WMOD_INFO_FILE) $(YAML_EVAL)
 WMOD_DVPLIZE = y
 
 # Mod variables
+WMOD_TITLE ?= $(WMOD_INFO_GET) '.mod_entry.name'
 WMOD_TARGET_PLATFORM ?= $(WMOD_INFO_GET) '.mod_entry.compatibility.target_platform'
 WMOD_TARGET_PUBLISHER ?= $(WMOD_INFO_GET) '.mod_entry.compatibility.target_publisher'
 WMOD_TARGET_PATCH ?= $(WMOD_INFO_GET) '.mod_entry.compatibility.target_patch'

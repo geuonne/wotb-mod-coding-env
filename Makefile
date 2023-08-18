@@ -7,7 +7,7 @@ all: build
 prebuild:
 
 .PHONY: build
-build: DEPS != find 'src' -type f
+build: DEPS != $(FIND) '$(SRCDIR)' -type f
 build: $(DEPS) prebuild
 	$(MKDIR) -p $(BUILDPLATFORMDIR)
 	$(CP) -R $(SRCDIR)/* $(BUILDPLATFORMDIR)

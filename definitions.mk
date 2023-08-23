@@ -1,4 +1,9 @@
-# Program dependencies
+### Meta
+# Statement separator. Useful in "define" blocks for separating shell
+# commands.
+_STASEP = ;
+
+### Program dependencies
 CD = cd
 CP = cp
 RM = rm
@@ -29,6 +34,7 @@ YAML_EVAL = $(YQ) eval --expression
 WMOD_INFO_FILE = mod_info.yaml
 WMOD_INFO_GET = 0<$(WMOD_INFO_FILE) $(YAML_EVAL)
 
+### Variables
 # Compress to dvpl (n|y), do compress by default
 WMOD_DVPLIZE = y
 
@@ -76,6 +82,7 @@ ifeq ($(WMOD_TARGET_PLATFORM), android)
 	WMOD_INSTALLDIR = $(WOTB_INSTALLDIR)/$(WOTB_PREFIX)
 endif
 
+### Directories
 SRCDIR = src
 BUILDDIR = build
 MEDIADIR = public/media

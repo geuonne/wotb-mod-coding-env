@@ -47,7 +47,7 @@ dist-forblitz: build
 
 # build packages as required by ForBlitz (all platforms)
 define dist_forblitz_by_platform =
-$(MAKE) -B dist-forblitz WMOD_TARGET_PLATFORM=$(i_target_platform)
+$(MAKE) -B dist-forblitz WMOD_TARGET_PLATFORM=$(i_target_platform) $(_STASEP)
 endef
 dist-forblitz-all:
 	$(foreach i_target_platform,android steam,$(dist_forblitz_by_platform))

@@ -50,7 +50,7 @@ WMOD_VERSION != $(GIT) describe --abbrev=0 $(REV) 2>/dev/null
 # Package name. Needed for Android packages
 WOTB_PACKAGE_NAME = net.wargaming.wot.blitz
 ifeq ($(WMOD_TARGET_PUBLISHER), lg)
-	WOTB_PACKAGENAME = com.tanksblitz
+	WOTB_PACKAGE_NAME = com.tanksblitz
 endif
 
 WMOD_TITLE != $(WMOD_INFO_GET) '.mod_entry.name'
@@ -67,19 +67,19 @@ ifeq ($(WMOD_TARGET_PLATFORM), steam)
 	WOTB_PREFIX = Data
 endif
 ifeq ($(WMOD_TARGET_PLATFORM), android)
-	WOTB_PREFIX = $(WOTB_PACKAGENAME)/files/packs
+	WOTB_PREFIX = $(WOTB_PACKAGE_NAME)/files/packs
 endif
 
 # Default unset (impossible to determine where the game is installed)
-WOTB_INSTALLDIR = .
+WOTB_INSTALL_DIR = .
 ifeq ($(WMOD_TARGET_PLATFORM), android)
-	WOTB_INSTALLDIR = /sdcard/Android/data
+	WOTB_INSTALL_DIR = /sdcard/Android/data
 endif
 
 # Default unset (impossible to determine where the game is installed)
-WMOD_INSTALLDIR = .
+WMOD_INSTALL_DIR = .
 ifeq ($(WMOD_TARGET_PLATFORM), android)
-	WMOD_INSTALLDIR = $(WOTB_INSTALLDIR)/$(WOTB_PREFIX)
+	WMOD_INSTALL_DIR = $(WOTB_INSTALLDIR)/$(WOTB_PREFIX)
 endif
 
 ### Directories

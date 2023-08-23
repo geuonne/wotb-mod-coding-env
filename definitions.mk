@@ -14,6 +14,7 @@ TR = tr
 TOUCH = true 1>
 SED = sed
 
+MAGICK = magick
 CURL = curl
 7Z = 7z
 DVPL = dvpl_converter

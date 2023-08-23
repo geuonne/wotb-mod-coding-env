@@ -12,6 +12,7 @@ SH = sh
 CAT = cat
 TR = tr
 TOUCH = true 1>
+SED = sed
 
 CURL = curl
 7Z = 7z

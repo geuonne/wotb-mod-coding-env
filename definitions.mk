@@ -81,8 +81,8 @@ MEDIADIR = public/media
 DESCDIR = public/desc
 DISTDIR = dist/general
 TOOLSDIR = tools
-PROJECTROOT != $(GIT) rev-parse --show-superproject-working-tree
-CODING_ENV_ROOT != $(GIT) rev-parse --show-toplevel
+SUPERPROJECTROOT != $(GIT) rev-parse --show-superproject-working-tree
+PROJECTROOT != $(GIT) rev-parse --show-toplevel
 
 BUILDPLATFORMDIR = $(BUILDDIR)/$(WMOD_TARGET_PLATFORM)/$(WOTB_PREFIX)
 

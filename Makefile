@@ -23,7 +23,7 @@ install: build
 .PHONY: description
 description: $(DESCFILE)
 
-$(DESCFILE): $(WMOD_INFOFILE)
+$(DESCFILE): $(WMOD_INFO_FILE)
 	$(YAML_EVAL) '.mod_entry.description.$(WMOD_DESCRIPTION_LANGUAGE), .mod_entry.faq.$(WMOD_DESCRIPTION_LANGUAGE)[]' $< 1>$@
 
 # Create release on GitHub
@@ -43,7 +43,7 @@ dist-forblitz: DISTDIR = dist/forblitz
 dist-forblitz: WMOD_PACKAGE_NAME = $(WMOD_NAME)_$(WMOD_VERSION)_$(WMOD_TARGET_PLATFORM)
 dist-forblitz: build
 	$(MKDIR) -p $(DISTDIR)
-	$(CD) $(BUILDDIR)/$(WMOD_TARGET_PLATFORM) && $(7Z) a $(_ROOT)/$(DISTDIR)/$(WMOD_PACKAGE_NAME).$(WMOD_PACKAGE_FORMAT) $(WOTB_PREFIX)
+	$(CD) $(BUILDDIR)/$(WMOD_TARGET_PLATFORM) && $(7Z) a $(PROJECTROOT)/$(DISTDIR)/$(WMOD_PACKAGE_NAME).$(WMOD_PACKAGE_FORMAT) $(WOTB_PREFIX)
 
 # build packages as required by ForBlitz (all platforms)
 dist-forblitz-all:

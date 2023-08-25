@@ -44,8 +44,8 @@ WMOD_TARGET_PUBLISHER != $(WMOD_INFO_GET) '.mod_entry.compatibility.target_publi
 WMOD_TARGET_PATCH != $(WMOD_INFO_GET) '.mod_entry.compatibility.target_patch'
 
 REV = HEAD
-# version from an annotated tag
-WMOD_VERSION != $(GIT) describe --abbrev=0 $(REV) 2>/dev/null
+# version from an annotated tag or commit id
+WMOD_VERSION != $(GIT) describe --abbrev=0 $(REV) 2>/dev/null || ( $(GIT) rev-parse $(REV) | $(CUT) -b-7 )
 
 # Package name. Needed for Android packages
 WOTB_PACKAGE_NAME = net.wargaming.wot.blitz

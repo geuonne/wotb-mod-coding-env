@@ -1,7 +1,7 @@
 yaml-files:
-    - '*.yaml'
-    - '*.yml'
-    - '.yamllint'
+- '*.yaml'
+- '*.yml'
+- '.yamllint'
 
 rules:
     braces: enable
@@ -18,7 +18,9 @@ rules:
     empty-values: enable
     float-values: disable
     hyphens: disable
-    indentation: enable
+    indentation:
+        spaces: 4
+        indent-sequences: false
     key-duplicates: enable
     key-ordering: disable
     line-length: disable

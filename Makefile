@@ -35,7 +35,7 @@ release:
 .PHONY: dist-general
 dist-general: DISTDIR = dist/general
 dist-general: build
-	$(CD) $(BUILDDIR)/$(WMOD_TARGET_PLATFORM) && $(7Z) a $(PROJECTROOT)/$(DISTDIR)/$(WMOD_PACKAGENAME).$(WMOD_PACKAGE_FORMAT) $(WOTB_PREFIX)
+	$(CD) $(BUILDDIR)/$(WMOD_TARGET_PLATFORM) && $(7Z) a $(PROJECTROOT)/$(DISTDIR)/$(WMOD_PACKAGE_NAME).$(WMOD_PACKAGE_FORMAT) $(WOTB_PREFIX)
 
 # build packages as required by ForBlitz
 .PHONY: dist-forblitz

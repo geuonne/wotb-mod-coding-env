@@ -4,7 +4,7 @@ trim_trailing_whitespace = true
 charset = utf-8
 
 # Default in Wargaming's source files
-[{prepare,src}/**]
+[{prepare,src}/**.{yaml,yml,actions,animation,txt}]
 end_of_line = crlf
 
 # Default in Wargaming's source files

@@ -2,6 +2,9 @@
 # Statement separator. Useful in "define" blocks for separating shell
 # commands.
 _STASEP = ;
+# Escapable comma by using variable substitution ($(,))
+# https://blog.jgc.org/2007/06/escaping-comma-and-space-in-gnu-make.html
+, = ,
 
 ### Program dependencies
 CD = cd

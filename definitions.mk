@@ -21,6 +21,8 @@ CAT = cat
 TR = tr
 TOUCH = true 1>
 SED = sed
+SEQ = seq
+EXPR = expr
 
 MAGICK = magick
 CURL = curl

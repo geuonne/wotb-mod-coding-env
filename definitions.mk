@@ -21,6 +21,7 @@ CAT = cat
 TR = tr
 TOUCH = true 1>
 SED = sed
+AWK = awk
 SEQ = seq
 EXPR = expr
 

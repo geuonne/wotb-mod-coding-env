@@ -35,12 +35,11 @@ MAKE = make
 
 YQ = yq --no-colors --indent 4 --unwrapScalar=false
 YAMLLINT = yamllint
-YAML_EVAL = $(YQ) eval --expression
 
 include yaml_definitions.mk
 
 WMOD_INFO_FILE = mod_info.yaml
-WMOD_INFO_GET = 0<$(WMOD_INFO_FILE) $(YAML_EVAL)
+WMOD_INFO_GET = 0<$(WMOD_INFO_FILE) $(YQ)
 
 ### Variables
 # Compress to dvpl (n|y), do compress by default

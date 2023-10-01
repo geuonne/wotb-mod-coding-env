@@ -24,7 +24,7 @@ install: build
 description: $(DESCFILE)
 
 $(DESCFILE): $(WMOD_INFO_FILE)
-	$(YAML_EVAL) '.mod_entry.description.$(WMOD_DESCRIPTION_LANGUAGE), .mod_entry.faq.$(WMOD_DESCRIPTION_LANGUAGE)[]' $< 1>$@
+	$(YQ) '.mod_entry.description.$(WMOD_DESCRIPTION_LANGUAGE), .mod_entry.faq.$(WMOD_DESCRIPTION_LANGUAGE)[]' $< 1>$@
 
 # Create release on GitHub
 .PHONY: release

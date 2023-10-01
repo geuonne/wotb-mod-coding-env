@@ -33,7 +33,7 @@ GITHUB = gh
 GIT = git
 MAKE = make
 
-YQ = yq --no-colors --indent 4
+YQ = yq --no-colors --indent 4 --unwrapScalar=false
 YAMLLINT = yamllint
 YAML_EVAL = $(YQ) eval --expression
 

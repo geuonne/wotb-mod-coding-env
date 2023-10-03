@@ -14,5 +14,5 @@ _YQ_forcefloat = .00001
 # .Prototypes[]->b->c   ->   .Prototypes[] | select(."name" == "b").children[] | select(."name" == "c")
 # Usage: $(call yq_dava,.Prototypes[]->b->c)
 define yq_dava =
-$(shell $(ECHO) "$(1)" | $(SED) 's/->/ | select(."name" == "/; s/->/").children[] | select(."name" == "/g; s/$($)/")/')
+$(shell $(ECHO) '$(1)' | $(SED) 's/->/ | select(."name" == "/; s/->/").children[] | select(."name" == "/g; s/$($)/")/')
 endef

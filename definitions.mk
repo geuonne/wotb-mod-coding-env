@@ -5,6 +5,7 @@ _STASEP = ;
 # Escapable comma by using variable substitution ($(,))
 # https://blog.jgc.org/2007/06/escaping-comma-and-space-in-gnu-make.html
 , = ,
+# Escapable dollar sign by using variable substitution ($($))
 $$ = $$
 
 ### Program dependencies
@@ -16,6 +17,7 @@ FIND = find
 MKDIR = mkdir
 CUT = cut
 GREP = grep
+PRINTF = printf
 ECHO = echo
 SH = sh
 CAT = cat
@@ -37,9 +39,21 @@ MAKE = make
 YQ = yq --no-colors --indent 4 --unwrapScalar=false
 YAMLLINT = yamllint
 
-include yaml_definitions.mk
+### Directories
+PREPAREDIR = prepare
+SRCDIR = src
+BUILDDIR = build
+PUBLICDIR = public
+MEDIADIR = $(PUBLICDIR)/media
+DESCDIR = $(PUBLICDIR)/desc
+DISTDIR = dist
+TOOLSDIR = tools
+SUPERPROJECTROOT != $(GIT) rev-parse --show-superproject-working-tree
+PROJECTROOT != $(GIT) rev-parse --show-toplevel
 
-WMOD_INFO_FILE = mod_info.yaml
+include $(PROJECTROOT)/yaml_definitions.mk
+
+WMOD_INFO_FILE = $(PROJECTROOT)/mod_info.yaml
 WMOD_INFO_GET = 0<$(WMOD_INFO_FILE) $(YQ)
 
 ### Variables
@@ -89,16 +103,6 @@ WMOD_INSTALL_DIR = .
 ifeq ($(WMOD_TARGET_PLATFORM), android)
 	WMOD_INSTALL_DIR = $(WOTB_INSTALLDIR)/$(WOTB_PREFIX)
 endif
-
-### Directories
-SRCDIR = src
-BUILDDIR = build
-MEDIADIR = public/media
-DESCDIR = public/desc
-DISTDIR = dist/general
-TOOLSDIR = tools
-SUPERPROJECTROOT != $(GIT) rev-parse --show-superproject-working-tree
-PROJECTROOT != $(GIT) rev-parse --show-toplevel
 
 BUILDPLATFORMDIR = $(BUILDDIR)/$(WMOD_TARGET_PLATFORM)/$(WOTB_PREFIX)
 

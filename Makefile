@@ -29,7 +29,7 @@ $(DESCFILE): $(WMOD_INFO_FILE)
 # Create release on GitHub
 .PHONY: release
 release:
-	$(GH) release create -t $(WMOD_VERSION) $(WMOD_VERSION) $(shell $(FIND) $(DISTDIR) -name "*.$(WMOD_PACKAGE_FORMAT)")
+	$(GITHUB) release create -t $(WMOD_VERSION) $(WMOD_VERSION) $(shell $(FIND) $(DISTDIR) -name "*.$(WMOD_PACKAGE_FORMAT)")
 
 # build packages in general format
 .PHONY: dist-general

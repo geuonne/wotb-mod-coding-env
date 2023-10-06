@@ -35,6 +35,7 @@ DVPL = dvpl_converter
 GITHUB = gh
 GIT = git
 MAKE = make
+ICONV = iconv
 
 YQ = yq --no-colors --indent 4 --unwrapScalar=false
 YAMLLINT = yamllint
